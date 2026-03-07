@@ -1263,6 +1263,76 @@
       border: 1px solid rgba(52, 211, 153, .3);
     }
 
+    /* ── Project share link box ── */
+    .detail-share {
+      margin-top: 1rem;
+      padding: .85rem 1rem;
+      background: rgba(255, 120, 0, .04);
+      border: 1px solid rgba(255, 120, 0, .14);
+      border-radius: 10px;
+    }
+
+    .detail-share-label {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-bottom: .5rem;
+    }
+
+    .detail-share-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .detail-share-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      border-radius: 7px;
+      padding: .45rem .7rem;
+      font-size: .75rem;
+      color: var(--accent);
+      font-family: monospace;
+      outline: none;
+      cursor: text;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .detail-share-input:focus {
+      border-color: var(--accent);
+    }
+
+    .detail-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: rgba(255, 120, 0, .12);
+      border: 1px solid rgba(255, 120, 0, .28);
+      color: var(--accent);
+      border-radius: 7px;
+      padding: .45rem .85rem;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--tr);
+      font-family: var(--font-bd);
+    }
+
+    .detail-share-btn:hover {
+      background: rgba(255, 120, 0, .22);
+      border-color: var(--accent);
+    }
+
     /* ================================================
    SUBMIT FORM
 ================================================ */
@@ -3416,7 +3486,7 @@
         <button class="btn btn-gold" style="width:100%;margin-top:1rem;padding:.75rem;font-size:.92rem"
           onclick="adminLogin()">🔓 Login</button>
         <div class="login-error" id="loginError">❌ Invalid credentials. Try again.</div>
-        <p style="margin-top:1rem;font-size:.72rem;color:var(--text3)">Demo: admin / zexa2025</p>
+        <!-- <p style="margin-top:1rem;font-size:.72rem;color:var(--text3)">Demo: admin / zexa2025</p> -->
       </div>
 
       <!-- DASHBOARD -->
@@ -3463,8 +3533,9 @@
                 <path
                   d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z" />
               </svg></a>
-            
-        </div>
+
+
+          </div>
         </div>
         <div class="footer-col">
           <h4>Platform</h4>
@@ -3551,37 +3622,37 @@
     let projects = [
       /* ---- FEATURED (8) ---- */
       { id: 1, name: "AstroFlare", symbol: "AFLR", chain: "ETH", contract: "0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b", desc: "AstroFlare is a next-gen DeFi protocol enabling seamless cross-chain yield optimization with automated compounding strategies and flash-loan protection.", category: "DeFi", votes: 2840, trending: true, featured: true, status: "approved", new: false, website: "https://flare.network/", twitter: "https://x.com/FlareNetworks", telegram: "https://t.me/FlareNetwork", logoData: "/flare.png", color: "#ff7800", dateAdded: Date.now() - 86400000 * 3 },
-      { id: 2, name: "NexAI", symbol: "NXAI", chain: "ETH", contract: "0x9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d", desc: "Decentralized AI compute marketplace where developers rent GPU power and AI inference models using NXAI tokens with on-chain billing.", category: "AI", votes: 31000, trending: true, featured: true, status: "approved", new: true, website: "https://nexchain.ai/", twitter: "https://x.com/nexchain_ai", telegram: "https://t.me/nexchain_ai", logoData: "/nex.png", color: "#ff9a33", dateAdded: Date.now() - 86400000 },
+      { id: 2, name: "NexAI", symbol: "NXAI", chain: "ETH", contract: "0x9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d", desc: "Decentralized AI compute marketplace where developers rent GPU power and AI inference models using NXAI tokens with on-chain billing.", category: "AI", votes: 3100, trending: true, featured: true, status: "approved", new: true, website: "https://nexchain.ai/", twitter: "https://x.com/nexchain_ai", telegram: "https://t.me/nexchain_ai", logoData: "/nex.png", color: "#ff9a33", dateAdded: Date.now() - 86400000 },
       { id: 3, name: "CyberPunks", symbol: "CPUNK", chain: "ETH", contract: "0x2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b", desc: "10,000 unique AI-generated CyberPunk NFTs with fully on-chain attributes. Holders access exclusive DAO governance and staking rewards.", category: "NFT", votes: 3450, trending: true, featured: true, status: "approved", new: false, website: "https://www.cryptopunks.app/", twitter: "https://x.com/cryptopunks", telegram: "https://t.me/cryptopunks_t", logoData: "/punks.png", color: "#cc4400", dateAdded: Date.now() - 86400000 * 4 },
       { id: 4, name: "DogeMars", symbol: "DGMRS", chain: "BSC", contract: "0x4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e", desc: "Community-driven meme project aiming to send Doge to Mars. Automatic LP and burn mechanism with NFT staking rewards for long-term holders.", category: "Meme", votes: 5678, trending: true, featured: true, status: "approved", new: false, website: "https://thedogeverse.com/en", twitter: "https://x.com/The_DogeVerse", telegram: "https://t.me/The_DogeVerse", logoData: "/dg.png", color: "#e86800", dateAdded: Date.now() - 86400000 * 6 },
       { id: 5, name: "AvaLaunch", symbol: "AVL", chain: "AVAX", contract: "0x3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d", desc: "Premier IDO launchpad on Avalanche offering fully vetted project launches with guaranteed allocation tiers and post-launch liquidity support.", category: "DeFi", votes: 2200, trending: true, featured: true, status: "approved", new: false, website: "https://avalaunch.app/", twitter: "https://x.com/AvalaunchApp", telegram: "https://t.me/avalaunch_app", logoData: "/aval.png", color: "#ff5500", dateAdded: Date.now() - 86400000 * 5 },
       { id: 6, name: "Bonk Coin", symbol: "BONK", chain: "SOL", contract: "0x8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a", desc: "A community-driven, dog-themed meme coin built on the Solana blockchain, designed to bring fun and decentralized engagement to the Solana ecosystem.", category: "Utility", votes: 1290, trending: false, featured: true, status: "approved", new: true, website: "https://bonkcoin.com/", twitter: "https://x.com/bonk_inu", telegram: "https://t.me/Official_Bonk_Inu", discord: "https://discord.com/invite/qaQa6M6mN2", logoData: "/bonk.png", color: "#ff8c00", dateAdded: Date.now() - 86400000 },
-      { id: 7, name: "ZenithDAO", symbol: "ZND", chain: "ETH", contract: "0xc1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0", desc: "Community-governed treasury DAO funding early-stage crypto projects. Token holders vote on investment proposals and share protocol revenue quarterly.", category: "DeFi", votes: 18750, trending: true, featured: true, status: "approved", new: true, website: "https://www.zenithchain.co/nft", twitter: "https://x.com/zenithchain_co", telegram: "https://t.me/zenithchainalerts", logoData: "/znt.jpg", color: "#ff6600", dateAdded: Date.now() - 86400000 * 2 },
-      { id: 8, name: "BasePad", symbol: "BPAD", chain: "BASE", contract: "0xd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3", desc: "The first dedicated IDO launchpad on Base chain with KYC-verified projects, tiered allocations, and automatic vesting contract deployment.", category: "DeFi", votes: 23400, trending: true, featured: true, status: "approved", new: true, website: "https://bscpad.com/", twitter: "https://x.com/bscpad", telegram: "https://t.me/bscpad", logoData: "/b.png", color: "#ff7000", dateAdded: Date.now() - 86400000 },
+      { id: 7, name: "ZenithDAO", symbol: "ZND", chain: "ETH", contract: "0xc1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0", desc: "Community-governed treasury DAO funding early-stage crypto projects. Token holders vote on investment proposals and share protocol revenue quarterly.", category: "DeFi", votes: 1875, trending: true, featured: true, status: "approved", new: true, website: "https://www.zenithchain.co/nft", twitter: "https://x.com/zenithchain_co", telegram: "https://t.me/zenithchainalerts", logoData: "/znt.jpg", color: "#ff6600", dateAdded: Date.now() - 86400000 * 2 },
+      { id: 8, name: "BasePad", symbol: "BPAD", chain: "BASE", contract: "0xd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3", desc: "The first dedicated IDO launchpad on Base chain with KYC-verified projects, tiered allocations, and automatic vesting contract deployment.", category: "DeFi", votes: 2340, trending: true, featured: true, status: "approved", new: true, website: "https://bscpad.com/", twitter: "https://x.com/bscpad", telegram: "https://t.me/bscpad", logoData: "/b.png", color: "#ff7000", dateAdded: Date.now() - 86400000 },
 
       /* ---- TRENDING (10) – not featured ---- */
-      { id: 9, name: "MoonPepe", symbol: "MPEPE", chain: "BSC", contract: "0xdeadbeef1234567890abcdef1234567890abcdef", desc: "The ultimate meme coin combining Pepe with deflationary tokenomics, a charity wallet, and automatic buy-back mechanism on every transaction.", category: "Meme", votes: 42100, trending: true, featured: false, status: "approved", new: false, website: "https://game.moonpepe.xyz/", twitter: "https://x.com/moonpepe_xyz", telegram: "https://t.me/moonpepearb", logoData: "/moon.png", color: "#e87700", dateAdded: Date.now() - 86400000 * 2 },
+      { id: 9, name: "MoonPepe", symbol: "MPEPE", chain: "BSC", contract: "0xdeadbeef1234567890abcdef1234567890abcdef", desc: "The ultimate meme coin combining Pepe with deflationary tokenomics, a charity wallet, and automatic buy-back mechanism on every transaction.", category: "Meme", votes: 4210, trending: true, featured: false, status: "approved", new: false, website: "https://game.moonpepe.xyz/", twitter: "https://x.com/moonpepe_xyz", telegram: "https://t.me/moonpepearb", logoData: "/moon.png", color: "#e87700", dateAdded: Date.now() - 86400000 * 2 },
       { id: 10, name: "The Graph", symbol: "GRT", chain: "SOL", contract: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU", desc: "The first blockchain-native database designed to transform smart contract activity into enterprise-ready datasets with built-in compliance, auditability, and scale.", category: "GameFi", votes: 1560, trending: true, featured: false, status: "approved", new: true, website: "https://thegraph.com/", twitter: "https://x.com/graphprotocol", telegram: "https://t.me/GraphProtocol", logoData: "graph.jpg", color: "#9945ff", dateAdded: Date.now() - 86400000 },
       { id: 11, name: "Axie Infinity", symbol: "AXS", chain: "SOL", contract: "0x7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c", desc: "Axie Infinity is a blockchain-based trading and battling game that is partially owned and operated by its players.", category: "DeFi", votes: 1780, trending: true, featured: false, status: "approved", new: false, website: "https://axieinfinity.com/", twitter: "https://x.com/AxieInfinity", telegram: "https://t.me/axieinfinity", discord: "https://discord.com/invite/axie", logoData: "infinity.png", color: "#28a0f0", dateAdded: Date.now() - 86400000 * 2 },
-      { id: 12, name: "FluxFi", symbol: "FLUX", chain: "ETH", contract: "0xe5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4", desc: "Algorithmic stablecoin protocol with dynamic collateral rebalancing, partial reserves, and an on-chain governance module for parameter adjustments.", category: "DeFi", votes: 9200, trending: true, featured: false, status: "approved", new: true, website: "https://fluxfinance.com/", twitter: "https://x.com/FluxDeFi", telegram: "https://t.me/ondocommunity", logoData: "/flux.png", color: "#ff8800", dateAdded: Date.now() - 86400000 },
+      { id: 12, name: "FluxFi", symbol: "FLUX", chain: "ETH", contract: "0xe5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4", desc: "Algorithmic stablecoin protocol with dynamic collateral rebalancing, partial reserves, and an on-chain governance module for parameter adjustments.", category: "DeFi", votes: 920, trending: true, featured: false, status: "approved", new: true, website: "https://fluxfinance.com/", twitter: "https://x.com/FluxDeFi", telegram: "https://t.me/ondocommunity", logoData: "/flux.png", color: "#ff8800", dateAdded: Date.now() - 86400000 },
       { id: 13, name: "Mantle", symbol: "MNT", chain: "ETH", contract: "GpPv2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgHk9W", desc: "A pioneering on-chain ecosystem dedicated to revolutionizing the future of finance and blockchain scalability, seamlessly bridging traditional finance (TradFi) and decentralized finance (DeFi).", category: "Utility", votes: 1430, trending: true, featured: false, status: "approved", new: true, website: "https://group.mantle.xyz/", twitter: "https://x.com/Mantle_Official", telegram: "https://t.me/mantlenetwork", discord: "https://discord.com/invite/0xMantle", logoData: "mntle.png", color: "#ff5c00", dateAdded: Date.now() - 86400000 },
       { id: 14, name: "LayerZero", symbol: "ZRO", chain: "ETH", contract: "0x5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6", desc: "LayerZero is an omnichain interoperability protocol designed for lightweight message passing across chains.", category: "DeFi", votes: 890, trending: true, featured: false, status: "approved", new: false, website: "https://layerzero.foundation/", twitter: "https://x.com/LayerZero_Fndn", telegram: "https://t.me/joinchat/VcqxYkStIDsyN2Rh", discord: "https://discord.com/invite/ktbvm8Nkcr", logoData: "0.png", color: "#8247e5", dateAdded: Date.now() - 86400000 * 3 },
       { id: 15, name: "Jito", symbol: "JTO", chain: "SOL", contract: "0xf7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6", desc: "Jito Network is a major contributor to the Solana ecosystem through its JitoSOL liquid staking pool, and its collection of MEV products.", category: "DeFi", votes: 1120, trending: true, featured: false, status: "approved", new: true, website: "https://www.jito.network/", twitter: "https://x.com/jito_sol", telegram: "https://t.me/+csIgnEQMCHhiYjVh", discord: "https://discord.com/invite/jitocommunity", logoData: "jito.png", color: "#ff7a00", dateAdded: Date.now() - 86400000 },
-      { id: 16, name: "StarDust", symbol: "SDUST", chain: "BSC", contract: "0xa1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", desc: "Play-to-earn space exploration game on BNB Chain with fully tradeable in-game assets, guild systems, and a deflationary reward token economy.", category: "GameFi", votes: 20500, trending: true, featured: false, status: "approved", new: false, website: "https://stardust-crypto.com/", twitter: "https://x.com/Stardust_DevJr", telegram: "https://t.me/SD_Official_StarDust", logoData: "dust.png", color: "#ffa000", dateAdded: Date.now() - 86400000 * 4 },
+      { id: 16, name: "StarDust", symbol: "SDUST", chain: "BSC", contract: "0xa1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", desc: "Play-to-earn space exploration game on BNB Chain with fully tradeable in-game assets, guild systems, and a deflationary reward token economy.", category: "GameFi", votes: 2050, trending: true, featured: false, status: "approved", new: false, website: "https://stardust-crypto.com/", twitter: "https://x.com/Stardust_DevJr", telegram: "https://t.me/SD_Official_StarDust", logoData: "dust.png", color: "#ffa000", dateAdded: Date.now() - 86400000 * 4 },
       { id: 17, name: "RiftDEX", symbol: "RIFT", chain: "ARB", contract: "0xb2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1", desc: "Cross-margin perpetuals DEX on Arbitrum with up to 50x leverage, integrated on-chain order book, and auto-liquidation bots powered by keeper nodes.", category: "DeFi", votes: 1660, trending: true, featured: false, status: "approved", new: true, website: "https://app.rift.trade/", twitter: "https://x.com/riftdex", logoData: "rft.jpg", color: "#e85000", dateAdded: Date.now() - 86400000 },
       { id: 18, name: "ShibaX", symbol: "SHIBX", chain: "BSC", contract: "0xc3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2", desc: "Community-owned meme ecosystem with a DEX, NFT marketplace, and multi-chain bridge all in one. Holders earn passive income from protocol revenue.", category: "Meme", votes: 3870, trending: true, featured: false, status: "approved", new: false, website: "https://www.shibaxdefi.com/", twitter: "https://x.com/ShibaXdefi", telegram: "https://t.me/shibaxdefi", logoData: "shiba.png", color: "#ff6a00", dateAdded: Date.now() - 86400000 * 5 },
 
       /* ---- NEW LISTINGS (12) ---- */
-      { id: 19, name: "ZeroGas", symbol: "ZGAS", chain: "BSC", contract: "0xf1e2d3c4b5a6978869504132e1d2c3b4a5f6e7d8", desc: "ZeroGas eliminates transaction fees for end users via a meta-transaction relayer network funded entirely by protocol treasury revenue.", category: "Layer2", votes: 6540, trending: false, featured: false, status: "approved", new: true, website: "https://0gas.org/", telegram: "https://t.me/zerogas", logoData: "gas.png", color: "#ff8800", dateAdded: Date.now() - 3600000 * 2 },
-      { id: 20, name: "Tera Classic", symbol: "LUNC", chain: "SOL", contract: "0x6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f", desc: "Terra is a blockchain protocol that uses fiat-pegged stablecoins to power price-stable global payments systems.", category: "DeFi", votes: 4800, trending: false, featured: false, status: "approved", new: true, website: "https://www.terra-classic.io/", twitter: "https://x.com/terra_money", logoData: "tara.png", color: "#28a0f0", dateAdded: Date.now() - 3600000 * 4 },
+      { id: 19, name: "ZeroGas", symbol: "ZGAS", chain: "BSC", contract: "0xf1e2d3c4b5a6978869504132e1d2c3b4a5f6e7d8", desc: "ZeroGas eliminates transaction fees for end users via a meta-transaction relayer network funded entirely by protocol treasury revenue.", category: "Layer2", votes: 654, trending: false, featured: false, status: "approved", new: true, website: "https://0gas.org/", telegram: "https://t.me/zerogas", logoData: "gas.png", color: "#ff8800", dateAdded: Date.now() - 3600000 * 2 },
+      { id: 20, name: "Tera Classic", symbol: "LUNC", chain: "SOL", contract: "0x6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f", desc: "Terra is a blockchain protocol that uses fiat-pegged stablecoins to power price-stable global payments systems.", category: "DeFi", votes: 480, trending: false, featured: false, status: "approved", new: true, website: "https://www.terra-classic.io/", twitter: "https://x.com/terra_money", logoData: "tara.png", color: "#28a0f0", dateAdded: Date.now() - 3600000 * 4 },
       { id: 21, name: "Yearn Finance DAO", symbol: "VLX", chain: "ETH", contract: "0xa9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8", desc: "The yield protocol for digital assets focused on optimizing DeFi yield strategies.", category: "DeFi", votes: 310, trending: false, featured: false, status: "approved", new: true, website: "https://yearn.fi/", twitter: "https://x.com/yearnfi", discord: "https://discord.com/yearn", logoData: "yarn.png", color: "#ff7000", dateAdded: Date.now() - 3600000 * 5 },
-      { id: 22, name: "NeonPets", symbol: "NPT", chain: "SOL", contract: "HqPv3CW87d97TXJSDpbD5jBkheTqA83TZRuJosgHn2X", desc: "Collect, breed, and battle unique animated NFT pets on Solana. Each pet has provably random on-chain genetics that affect its combat stats and rarity.", category: "GameFi", votes: 7250, trending: false, featured: false, status: "approved", new: true, website: "https://www.neopetsmeta.io/", twitter: "https://x.com/NeopetsMeta?hzet=dszqupsbol", discord: "https://discord.com//neopets-metaverse", logoData: "pets.png", color: "#9945ff", dateAdded: Date.now() - 3600000 * 6 },
-      { id: 23, name: "TurboSwap", symbol: "TURBO", chain: "BASE", contract: "0xd5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4", desc: "Ultra-low-fee DEX on Base chain with a novel just-in-time liquidity model, sub-10ms order matching, and seamless MetaMask-to-trade UX.", category: "DeFi", votes: 5400, trending: false, featured: false, status: "approved", new: true, website: "https://turbotoken.io/", twitter: "https://x.com/TurboToadToken", telegram: "https://t.me/TurboToadToken", logoData: "turbo.png", color: "#ff9900", dateAdded: Date.now() - 3600000 * 7 },
-      { id: 24, name: "LunarApe", symbol: "LAPE", chain: "ETH", contract: "0xe6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5", desc: "10K PFP collection granting access to the Lunar Ape Club — an exclusive Web3 incubator with deal flow, private sales, and alpha channels.", category: "NFT", votes: 8900, trending: false, featured: false, status: "approved", new: true, website: "https://lunape.finance/", twitter: "https://x.com/Official_LUNAPE", telegram: "https://t.me/lunape_official", logoData: "ape.png", color: "#ff6800", dateAdded: Date.now() - 3600000 * 8 },
+      { id: 22, name: "NeonPets", symbol: "NPT", chain: "SOL", contract: "HqPv3CW87d97TXJSDpbD5jBkheTqA83TZRuJosgHn2X", desc: "Collect, breed, and battle unique animated NFT pets on Solana. Each pet has provably random on-chain genetics that affect its combat stats and rarity.", category: "GameFi", votes: 725, trending: false, featured: false, status: "approved", new: true, website: "https://www.neopetsmeta.io/", twitter: "https://x.com/NeopetsMeta?hzet=dszqupsbol", discord: "https://discord.com//neopets-metaverse", logoData: "pets.png", color: "#9945ff", dateAdded: Date.now() - 3600000 * 6 },
+      { id: 23, name: "TurboSwap", symbol: "TURBO", chain: "BASE", contract: "0xd5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4", desc: "Ultra-low-fee DEX on Base chain with a novel just-in-time liquidity model, sub-10ms order matching, and seamless MetaMask-to-trade UX.", category: "DeFi", votes: 540, trending: false, featured: false, status: "approved", new: true, website: "https://turbotoken.io/", twitter: "https://x.com/TurboToadToken", telegram: "https://t.me/TurboToadToken", logoData: "turbo.png", color: "#ff9900", dateAdded: Date.now() - 3600000 * 7 },
+      { id: 24, name: "LunarApe", symbol: "LAPE", chain: "ETH", contract: "0xe6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5", desc: "10K PFP collection granting access to the Lunar Ape Club — an exclusive Web3 incubator with deal flow, private sales, and alpha channels.", category: "NFT", votes: 890, trending: false, featured: false, status: "approved", new: true, website: "https://lunape.finance/", twitter: "https://x.com/Official_LUNAPE", telegram: "https://t.me/lunape_official", logoData: "ape.png", color: "#ff6800", dateAdded: Date.now() - 3600000 * 8 },
       { id: 25, name: "Midnight", symbol: "NIGHT", chain: "BSC", contract: "0xf7a8b9c0d1e2f3a4b5c6d7e8f9b0c1d2e3f4a5b6", desc: "Midnight is a next-generation privacy-focused blockchain, uses zero-knowledge proofs and a dual-token architecture to enable programmable, compliant applications with built-in data and metadata protection.", category: "AI", votes: 420, trending: false, featured: false, status: "approved", new: true, website: "https://midnight.network/", twitter: "https://x.com/MidnightNtwrk", telegram: "https://t.me/Midnight_Network_Off", discord: "https://discord.com/invite/midnightnetwork", logoData: "mid.png", color: "#ff8400", dateAdded: Date.now() - 3600000 * 3 },
-      { id: 26, name: "Just", symbol: "JUST", chain: "TRN", contract: "0xa8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7", desc: "JUST is a decentralized finance (DeFi) ecosystem on the TRON blockchain centered around the JustStable decentralized stablecoin lending platform.", category: "DeFi", votes: 3650, trending: false, featured: false, status: "approved", new: true, website: "https://just.network/#/", twitter: "https://x.com/defi_just", telegram: "https://t.me/just_defi", logoData: "/just.png", color: "#8247e5", dateAdded: Date.now() - 3600000 * 9 },
-      { id: 27, name: "Telcoin", symbol: "TEL", chain: "POL", contract: "0xb9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8", desc: "A native token of the Telcoin Platform, powering a regulated, telecom-integrated blockchain network delivering global digital banking and remittance services .", category: "GameFi", votes: 6100, trending: false, featured: false, status: "approved", new: true, website: "https://www.telco.in/en", twitter: "https://x.com/telcoin", discord: "https://discord.com/invite/PMcuZRntNa", logoData: "tel.png", color: "#ff7700", dateAdded: Date.now() - 3600000 * 10 },
-      { id: 28, name: "AINFT", symbol: "NFT", chain: "ETH", contract: "0xc0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9", desc: "A Singapore-registered NFT marketplace token, operating on Ethereum and TRON to bridge blockchain technology with digital art and decentralized storage.", category: "DeFi", votes: 7300, trending: false, featured: false, status: "approved", new: true, website: "https://ainft.com/", twitter: "https://x.com/OfficialAINFT", telegram: "https://t.me/ainftEN", logoData: "nft.png", color: "#e84142", dateAdded: Date.now() - 3600000 * 11 },
+      { id: 26, name: "Just", symbol: "JUST", chain: "TRN", contract: "0xa8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7", desc: "JUST is a decentralized finance (DeFi) ecosystem on the TRON blockchain centered around the JustStable decentralized stablecoin lending platform.", category: "DeFi", votes: 365, trending: false, featured: false, status: "approved", new: true, website: "https://just.network/#/", twitter: "https://x.com/defi_just", telegram: "https://t.me/just_defi", logoData: "/just.png", color: "#8247e5", dateAdded: Date.now() - 3600000 * 9 },
+      { id: 27, name: "Telcoin", symbol: "TEL", chain: "POL", contract: "0xb9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8", desc: "A native token of the Telcoin Platform, powering a regulated, telecom-integrated blockchain network delivering global digital banking and remittance services .", category: "GameFi", votes: 610, trending: false, featured: false, status: "approved", new: true, website: "https://www.telco.in/en", twitter: "https://x.com/telcoin", discord: "https://discord.com/invite/PMcuZRntNa", logoData: "tel.png", color: "#ff7700", dateAdded: Date.now() - 3600000 * 10 },
+      { id: 28, name: "AINFT", symbol: "NFT", chain: "ETH", contract: "0xc0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9", desc: "A Singapore-registered NFT marketplace token, operating on Ethereum and TRON to bridge blockchain technology with digital art and decentralized storage.", category: "DeFi", votes: 730, trending: false, featured: false, status: "approved", new: true, website: "https://ainft.com/", twitter: "https://x.com/OfficialAINFT", telegram: "https://t.me/ainftEN", logoData: "nft.png", color: "#e84142", dateAdded: Date.now() - 3600000 * 11 },
       { id: 29, name: "Rock", symbol: "Rock", chain: "TRON", contract: "0xd1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0", desc: "A meme-inspired cryptocurrency originally launched as a Web3 game token through collaborations involving Gala Games and TRON, gaining traction across multiple crypto exchanges.", category: "Utility", votes: 855, trending: false, featured: false, status: "approved", new: true, website: "https://tronrock.meme/", twitter: "https://x.com/TRX_ROCK", telegram: "https://t.me/trx_rock", logoData: "rocl.png", color: "#ff9200", dateAdded: Date.now() - 3600000 * 12 },
       { id: 30, name: "Rubic", symbol: "RB", chain: "SOL", contract: "WqPv4CW87d97TXJSDpbD5jBkheTqA83TZRuJosgRt5Y", desc: "Rubic is a cross-chain tech aggregator for users and tools for dapps.", category: "DeFi", votes: 490, trending: false, featured: false, status: "approved", new: true, website: "https://rubic.exchange/", twitter: "https://x.com/CryptoRubic", telegram: "https://t.me/cryptorubic_chat", logoData: "rubic.png", color: "#9945ff", dateAdded: Date.now() - 3600000 },
 
@@ -3599,13 +3670,13 @@
     let currentAdminTab = 'pending';
     let editingProjectId = null;
 
-    const ADMIN_CREDS = { user: 'admin', pass: 'zexa2025' };
+    const ADMIN_CREDS = { user: 'admin', pass: 'shoumail12' };
     const TELEGRAM_CONTACT = 'https://t.me/zexalisting';
 
     /* ================================================
        NAV
     ================================================ */
-    function showPage(page, data) {
+    function showPage(page, data, skipHistory) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + page).classList.add('active');
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
@@ -3617,6 +3688,19 @@
       if (page === 'listings') renderAllCoins();
       if (page === 'detail' && data) renderDetail(data);
       if (page === 'admin') renderAdminPage();
+
+      // Update URL hash (skip during initial deep-link boot to avoid double push)
+      if (!skipHistory) {
+        if (page === 'detail' && data) {
+          const coin = projects.find(c => c.id === data);
+          if (coin) {
+            const slug = coin.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            history.pushState({ page, data }, '', '#/project/' + slug + '--' + coin.id);
+          }
+        } else {
+          history.pushState({ page }, '', page === 'home' ? '#' : '#/' + page);
+        }
+      }
     }
 
     function toggleMobileNav() {
@@ -3838,6 +3922,13 @@
         ${coin.twitter ? `<a href="${coin.twitter}" target="_blank" class="detail-social-link soc-tw"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.629L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter / X</a>` : ''}
         ${coin.telegram ? `<a href="${coin.telegram}" target="_blank" class="detail-social-link soc-tg"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg> Telegram</a>` : ''}
         ${coin.discord ? `<a href="${coin.discord}" target="_blank" class="detail-social-link soc-dc"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Discord</a>` : ''}
+      </div>
+      <div class="detail-share">
+        <div class="detail-share-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share this project</div>
+        <div class="detail-share-row">
+          <input class="detail-share-input" id="shareUrl-${coin.id}" type="text" readonly value="${window.location.href.split('#')[0]}#/project/${coin.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}--${coin.id}" onclick="this.select()">
+          <button class="detail-share-btn" onclick="copyText(document.getElementById('shareUrl-${coin.id}').value)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link</button>
+        </div>
       </div>
     </div>
     <div class="detail-vote d-anim2">
@@ -4255,9 +4346,47 @@
     });
 
     /* ================================================
-       INIT
+       INIT + DEEP-LINK ROUTING
     ================================================ */
-    renderHome();
+
+    // Parse the hash and route to the right page
+    function bootFromHash() {
+      const hash = window.location.hash; // e.g. #/project/nexai--3  or  #/listings
+
+      if (hash.startsWith('#/project/')) {
+        // Extract the numeric ID from the end: "nexai--3" → 3
+        const segment = hash.replace('#/project/', '');
+        const idMatch = segment.match(/--(\d+)$/);
+        if (idMatch) {
+          const coinId = parseInt(idMatch[1], 10);
+          const coin = projects.find(c => c.id === coinId);
+          if (coin) {
+            showPage('detail', coinId, true); // skipHistory=true, URL already correct
+            return;
+          }
+        }
+        // Fallback: try matching by slug if no ID
+        const slug = segment.replace(/--\d+$/, '');
+        const coin = projects.find(c =>
+          c.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === slug
+        );
+        if (coin) { showPage('detail', coin.id, true); return; }
+      }
+
+      if (hash === '#/listings') { showPage('listings', null, true); return; }
+      if (hash === '#/services') { showPage('services', null, true); return; }
+      if (hash === '#/submit') { showPage('submit', null, true); return; }
+      if (hash === '#/admin') { showPage('admin', null, true); return; }
+
+      // Default: home
+      showPage('home', null, true);
+    }
+
+    // Browser back / forward support
+    window.addEventListener('popstate', () => bootFromHash());
+
+    // Boot
+    bootFromHash();
     renderTicker();
   </script>
 </body>
